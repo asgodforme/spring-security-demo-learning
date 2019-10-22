@@ -1,0 +1,40 @@
+spring: 
+ datasource:
+  driverClassName: com.mysql.jdbc.Driver
+  url: jdbc:mysql://127.0.0.1:3306/imooc-demo
+  username: root
+  password: jiangjie1
+ jpa: 
+  hibernate: 
+   ddl-auto: update
+  show-sql: true
+  database: MYSQL
+  properties: 
+   hibernate: 
+    dialect: org.hibernate.dialect.MySQL5Dialect
+#关闭集群session
+ session: 
+  storeType: none
+#关闭security的默认拦截
+#security: 
+# basic: 
+#  enabled: false
+#  
+#jiangjie: 
+# security: 
+#  browser: 
+#   loginPage: 
+#    /demo-signIn.html
+#jiangjie: 
+# security: 
+#  browser: 
+#   loginType: 
+#    REDIRECT
+#jiangjie: 
+# security: 
+#  code: 
+#   image: 
+#    length: 6
+#    width: 100
+#    url: /user,/user/*
+
