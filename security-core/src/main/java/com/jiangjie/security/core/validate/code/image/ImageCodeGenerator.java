@@ -6,14 +6,18 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.context.request.ServletWebRequest;
 
 import com.jiangjie.security.core.properties.SecurityProperties;
 import com.jiangjie.security.core.validate.code.ValidateCodeGenerator;
 
+@Component("imageValidateCodeGenerator")
 public class ImageCodeGenerator implements ValidateCodeGenerator {
 
+	@Autowired
 	private SecurityProperties securityProperties;
 
 	@Override
@@ -52,6 +56,8 @@ public class ImageCodeGenerator implements ValidateCodeGenerator {
 			g.drawString(rand, 13 * i + 6, 16);
 		}
 
+		System.out.println("图片验证码：" + sRand);
+		
 		g.dispose();
 
 		return new ImageCode(image, sRand, securityProperties.getCode().getImage().getExpireIn());

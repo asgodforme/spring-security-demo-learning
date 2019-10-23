@@ -9,7 +9,7 @@ import com.jiangjie.security.core.properties.SecurityProperties;
 import com.jiangjie.security.core.validate.code.ValidateCode;
 import com.jiangjie.security.core.validate.code.ValidateCodeGenerator;
 
-@Component("smsCodeGenerator")
+@Component("smsValidateCodeGenerator")
 public class SmsCodeGenerator implements ValidateCodeGenerator {
 
 	@Autowired

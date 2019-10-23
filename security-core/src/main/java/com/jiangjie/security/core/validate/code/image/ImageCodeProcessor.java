@@ -8,7 +8,7 @@ import org.springframework.web.context.request.ServletWebRequest;
 import com.jiangjie.security.core.validate.code.ValidateCode;
 import com.jiangjie.security.core.validate.code.impl.AbstractValidateCodeProcessor;
 
-@Component("imageCodeProcessor")
+@Component("imageValidateCodeProcessor")
 public class ImageCodeProcessor extends AbstractValidateCodeProcessor {
 
 	@Override

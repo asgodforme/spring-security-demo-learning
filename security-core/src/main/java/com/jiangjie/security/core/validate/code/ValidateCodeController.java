@@ -1,7 +1,5 @@
 package com.jiangjie.security.core.validate.code;
 
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -42,11 +40,19 @@ public class ValidateCodeController {
 //		smsCodeSender.send(mobile, smsCode.getCode());
 //	}
 	
+//	@Autowired
+//	private Map<String, ValidateCodeProcessor> validateCodeProcessors;
+//	
+//	@GetMapping("/code/{type}")
+//	public void createCode(HttpServletRequest request, HttpServletResponse response, @PathVariable String type) throws Exception {
+//		validateCodeProcessors.get(type + "CodeProcessor").create(new ServletWebRequest(request, response));
+//	}
+	
 	@Autowired
-	private Map<String, ValidateCodeProcessor> validateCodeProcessors;
+	private ValidateCodeProcessorHolder validateCodeProcessorHolder;
 	
 	@GetMapping("/code/{type}")
 	public void createCode(HttpServletRequest request, HttpServletResponse response, @PathVariable String type) throws Exception {
-		validateCodeProcessors.get(type + "CodeProcessor").create(new ServletWebRequest(request, response));
+		validateCodeProcessorHolder.findValidateCodeProcessor(type).create(new ServletWebRequest(request, response));
 	}
 }
